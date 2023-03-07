@@ -9,13 +9,15 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     canIUseGetUserProfile: false,
-    canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName') // 如需尝试获取用户信息可改为false
+    canIUseOpenData:
+      wx.canIUse('open-data.type.userAvatarUrl') &&
+      wx.canIUse('open-data.type.userNickName'), // 如需尝试获取用户信息可改为false
   },
-    onLoad() {
+  onLoad() {
     // @ts-ignore
     if (wx.getUserProfile) {
       this.setData({
-        canIUseGetUserProfile: true
+        canIUseGetUserProfile: true,
       })
     }
   },
@@ -33,9 +35,9 @@ Page({
         console.log(res)
         this.setData({
           userInfo: res.userInfo,
-          hasUserInfo: true
+          hasUserInfo: true,
         })
-      }
+      },
     })
   },
   getUserInfo(e: any) {
@@ -43,7 +45,7 @@ Page({
     console.log(e)
     this.setData({
       userInfo: e.detail.userInfo,
-      hasUserInfo: true
+      hasUserInfo: true,
     })
-  }
+  },
 })
